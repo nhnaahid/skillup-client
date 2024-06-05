@@ -1,0 +1,159 @@
+[
+    {
+        "course_title": "Complete Web Development Bootcamp",
+        "course_image": "https://example.com/images/webdev1.jpg",
+        "instructor_name": "John Doe",
+        "course_price": 99.99,
+        "course_description": "Learn full-stack web development from scratch with this comprehensive course. Covering HTML, CSS, JavaScript, and back-end technologies like Node.js and MongoDB, this course will prepare you to build complete web applications.",
+        "course_category_name": "Web Development"
+    },
+    {
+        "course_title": "Advanced CSS and Sass",
+        "course_image": "https://example.com/images/webdev2.jpg",
+        "instructor_name": "Jane Smith",
+        "course_price": 79.99,
+        "course_description": "Master the art of styling websites with CSS and Sass. This course takes you through advanced techniques and tools to create beautiful, responsive web designs that stand out.",
+        "course_category_name": "Web Development"
+    },
+    {
+        "course_title": "JavaScript: The Complete Guide",
+        "course_image": "https://example.com/images/webdev3.jpg",
+        "instructor_name": "Mike Johnson",
+        "course_price": 89.99,
+        "course_description": "Dive deep into JavaScript, one of the most popular programming languages. This course covers everything from basic syntax to advanced concepts like closures, asynchronous programming, and more.",
+        "course_category_name": "Web Development"
+    },
+    {
+        "course_title": "React for Beginners",
+        "course_image": "https://example.com/images/webdev4.jpg",
+        "instructor_name": "Emily Davis",
+        "course_price": 69.99,
+        "course_description": "Get started with React, the powerful JavaScript library for building user interfaces. This course covers the fundamentals of React, including components, state management, and hooks.",
+        "course_category_name": "Web Development"
+    },
+    {
+        "course_title": "Digital Marketing Mastery",
+        "course_image": "https://example.com/images/digitalmarketing1.jpg",
+        "instructor_name": "Sarah Brown",
+        "course_price": 109.99,
+        "course_description": "Learn the essentials of digital marketing, including SEO, social media marketing, email marketing, and more. This course is designed to help you create effective digital marketing strategies for your business.",
+        "course_category_name": "Digital Marketing"
+    },
+    {
+        "course_title": "Social Media Marketing Strategies",
+        "course_image": "https://example.com/images/digitalmarketing2.jpg",
+        "instructor_name": "Tom Harris",
+        "course_price": 59.99,
+        "course_description": "Unlock the secrets of social media marketing with this in-depth course. Learn how to create engaging content, build a loyal following, and measure your success on platforms like Facebook, Instagram, and Twitter.",
+        "course_category_name": "Digital Marketing"
+    },
+    {
+        "course_title": "SEO Fundamentals",
+        "course_image": "https://example.com/images/digitalmarketing3.jpg",
+        "instructor_name": "Laura Green",
+        "course_price": 49.99,
+        "course_description": "Discover the basics of Search Engine Optimization (SEO) and learn how to improve your website's ranking on search engines. This course covers keyword research, on-page optimization, link building, and more.",
+        "course_category_name": "Digital Marketing"
+    },
+    {
+        "course_title": "Google Ads Certification",
+        "course_image": "https://example.com/images/digitalmarketing4.jpg",
+        "instructor_name": "Robert White",
+        "course_price": 129.99,
+        "course_description": "Become a certified Google Ads expert with this comprehensive course. Learn how to create, manage, and optimize Google Ads campaigns to drive traffic and sales for your business.",
+        "course_category_name": "Digital Marketing"
+    },
+    {
+        "course_title": "iOS App Development for Beginners",
+        "course_image": "https://example.com/images/appdev1.jpg",
+        "instructor_name": "Chris Wilson",
+        "course_price": 99.99,
+        "course_description": "Start your journey into iOS app development with this beginner-friendly course. Learn how to build apps for iPhone and iPad using Swift and Xcode, and get hands-on experience with real-world projects.",
+        "course_category_name": "App Development"
+    },
+    {
+        "course_title": "Android App Development with Kotlin",
+        "course_image": "https://example.com/images/appdev2.jpg",
+        "instructor_name": "Anna Martinez",
+        "course_price": 89.99,
+        "course_description": "Master Android app development with Kotlin, the modern programming language for Android. This course covers everything from basic app structure to advanced features like database integration and networking.",
+        "course_category_name": "App Development"
+    },
+    {
+        "course_title": "React Native for Mobile Developers",
+        "course_image": "https://example.com/images/appdev3.jpg",
+        "instructor_name": "Daniel Lee",
+        "course_price": 119.99,
+        "course_description": "Build cross-platform mobile apps using React Native. This course teaches you how to leverage your JavaScript skills to create apps that run on both iOS and Android with a single codebase.",
+        "course_category_name": "App Development"
+    },
+    {
+        "course_title": "Flutter for Beginners",
+        "course_image": "https://example.com/images/appdev4.jpg",
+        "instructor_name": "Jessica Taylor",
+        "course_price": 79.99,
+        "course_description": "Learn to build beautiful and fast mobile apps with Flutter, Google's UI toolkit. This course covers the basics of Flutter and Dart programming, as well as practical tips for building real-world applications.",
+        "course_category_name": "App Development"
+    },
+    {
+        "course_title": "Data Science Bootcamp",
+        "course_image": "https://example.com/images/datascience1.jpg",
+        "instructor_name": "Mark Anderson",
+        "course_price": 149.99,
+        "course_description": "Join this intensive bootcamp to become a data science expert. Learn Python, statistics, machine learning, and data visualization techniques to analyze and interpret complex data sets.",
+        "course_category_name": "Data Science"
+    },
+    {
+        "course_title": "Machine Learning A-Z",
+        "course_image": "https://example.com/images/datascience2.jpg",
+        "instructor_name": "Sophia Brown",
+        "course_price": 129.99,
+        "course_description": "Dive deep into machine learning with this comprehensive course. Covering both theory and practical applications, you'll learn how to implement machine learning algorithms using Python and R.",
+        "course_category_name": "Data Science"
+    },
+    {
+        "course_title": "Python for Data Science",
+        "course_image": "https://example.com/images/datascience3.jpg",
+        "instructor_name": "Ethan Miller",
+        "course_price": 99.99,
+        "course_description": "Get started with data science using Python. This course covers the fundamentals of Python programming, data manipulation with pandas, data visualization with matplotlib, and introductory machine learning.",
+        "course_category_name": "Data Science"
+    },
+    {
+        "course_title": "Deep Learning Specialization",
+        "course_image": "https://example.com/images/datascience4.jpg",
+        "instructor_name": "Olivia Garcia",
+        "course_price": 139.99,
+        "course_description": "Master deep learning techniques with this advanced course. Learn about neural networks, convolutional networks, recurrent networks, and how to apply them to real-world problems.",
+        "course_category_name": "Data Science"
+    },
+    {
+        "course_title": "Photography Basics and Beyond",
+        "course_image": "https://example.com/images/photography1.jpg",
+        "instructor_name": "William Johnson",
+        "course_price": 59.99,
+        "course_description": "Discover the fundamentals of photography with this beginner-friendly course. Learn about camera settings, composition, lighting, and post-processing techniques to capture stunning images.",
+        "course_category_name": "Photography & Video"
+    },
+    {
+        "course_title": "Advanced Portrait Photography",
+        "course_image": "https://example.com/images/photography2.jpg",
+        "instructor_name": "Emma Martinez",
+        "course_price": 89.99,
+        "course_description": "Enhance your portrait photography skills with this advanced course. Learn about lighting setups, posing, retouching, and creating compelling portraits that tell a story.",
+        "course_category_name": "Photography & Video"
+    },
+    {
+        "course_title": "Video Production Masterclass",
+        "course_image": "https://example.com/images/photography3.jpg",
+        "instructor_name": "Liam Brown",
+        "course_price": 119.99,
+        "course_description": "Master the art of video production with this comprehensive course. Covering everything from pre-production planning to shooting, editing, and post-production, you'll learn how to create professional-quality videos.",
+        "course_category_name": "Photography & Video"
+    },
+    {
+        "course_title": "Adobe Premiere Pro for Beginners",
+        "course_image": "https://example.com/images/photography4.jpg",
+        "instructor_name": "Isabella Wilson",
+        "course_price": 79.99,
+        "course_description": "Get started with video editing using Adobe Premiere Pro. This course covers the basics of the software, including timeline editing
