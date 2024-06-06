@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import SocialButton from "../../../components/SocialButton/SocialButton";
 
 
-const SocialLogin = () => {
+const SocialLogin = ({name}) => {
     const { googleSignIn } = useAuth();
     const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
@@ -18,8 +18,9 @@ const SocialLogin = () => {
             .then(result => {
                 console.log(result.user);
                 const userInfo = {
-                    email: result.user?.email,
                     name: result.user?.displayName,
+                    email: result.user?.email,
+                    photo: result.user?.photoURL,
                     role: 'student'
                 }
                 axiosPublic.post('/users', userInfo)
@@ -39,7 +40,7 @@ const SocialLogin = () => {
 
     return (
         <div className='space-y-3 pt-5'>
-            <p className='text-center font-bold'>Sign In With</p>
+            <p className='text-center font-bold'>{name} With</p>
             <div className='flex items-center justify-center gap-2'>
                 <div onClick={handleGoogleSignIn}>
                     <SocialButton logo={<FaGoogle></FaGoogle>}></SocialButton>

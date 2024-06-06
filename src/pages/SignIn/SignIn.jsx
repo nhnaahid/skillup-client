@@ -64,7 +64,7 @@ const Login = () => {
                         <Link><p className="my-1">Forget Password</p></Link>
 
                         <input type="submit" value="Sign In" className="w-full btn btn-sm md:btn-md btn-outline bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700 mt-3" />
-                        <SocialLogin></SocialLogin>
+                        <SocialLogin name="Sign In"></SocialLogin>
                     </form>
                 </div>
             </div>
