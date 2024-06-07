@@ -17,56 +17,41 @@ const SignUp = () => {
     const { createUser, updateUserProfile } = useAuth();
     const navigate = useNavigate();
 
-    const onSubmit = data => {
-        let userInfo = {
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            role: 'student'
-        }
+    const onSubmit = async (data) => {
+
         const profilePic = { image: data.image[0] };
-        axiosPublic.post(image_hosting_api, profilePic, {
+        const res = await axiosPublic.post(image_hosting_api, profilePic, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         })
-            .then(res => {
-                if (res.data.success) {
-                    userInfo = {
-                        ...userInfo,
-                        photoURL: res.data.data.display_url
-                    }
-                    // console.log('imgbb :', userInfo);
-                }
-            })
-        console.log('user all info from sign up: ', userInfo);
-
-        createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log('user from sign up: ', loggedUser);
-                // console.log('user photo from sign up: ', userInfo.photoURL);
-
-                updateUserProfile(data.name, data.email, userInfo.photoURL)
-                    .then(() => {
-                        // const userInfo = {
-                        //     name: data.name,
-                        //     email: data.email,
-                        //     phone: data.phone,
-                        //     photo: data.photoURL,
-                        //     role: 'student'
-                        // }
-                        axiosPublic.post('/users', userInfo)
-                            .then(res => {
-                                if (res.data.insertedId) {
-                                    reset();
-                                    toast.success('User Registration Successful.');
-                                    navigate('/');
-                                }
-                            })
-                    })
-                    .catch(error => console.log(error))
-            })
+        if (res.data.success) {
+            const userInfo = {
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+                role: 'student',
+                photoURL: res.data.data.display_url
+            }
+            // console.log('imgbb :', userInfo);
+            createUser(data.email, data.password)
+                .then(result => {
+                    const loggedUser = result.user;
+                    console.log('user from sign up: ', loggedUser);
+                    updateUserProfile(data.name, data.email, userInfo.photoURL)
+                        .then(() => {
+                            axiosPublic.post('/users', userInfo)
+                                .then(res => {
+                                    if (res.data.insertedId) {
+                                        reset();
+                                        toast.success('User Registration Successful.');
+                                        navigate('/');
+                                    }
+                                })
+                        })
+                        .catch(error => console.log(error))
+                })
+        }
     };
 
     return (
