@@ -6,6 +6,8 @@ import logo from '../../../assets/logo.gif'
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
+import useAdmin from "../../../hooks/useAdmin";
+import useTeacher from "../../../hooks/useTeacher";
 // import { AuthContext } from "../../providers/AuthProvider";
 // import { toast } from "react-toastify";
 
@@ -25,10 +27,24 @@ const NavBar = ({ isHome }) => {
                 toast.error(error.message);
             })
     }
+
+    const [isAdmin] = useAdmin();
+    const [isTeacher] = useTeacher();
+    // console.log(isAdmin, isTeacher);
+
     const navLink = <>
         <NavLink to="/"><p>Home</p></NavLink>
         <NavLink to="/all-courses"><p>All Courses</p></NavLink>
         <NavLink to="/teach"><p>Teach On Skillup</p></NavLink>
+        {
+            user && !isTeacher && !isAdmin && <NavLink to="/dashboard/studentProfile">Dashboard</NavLink>
+        }
+        {
+            user && isAdmin && <NavLink to="/dashboard/adminProfile">Dashboard</NavLink>
+        }
+        {
+            user && isTeacher && <NavLink to="/dashboard/teacherProfile">Dashboard</NavLink>
+        }
     </>
     document.addEventListener('scroll', () => {
         // const nav=document.getElementsByTagName('nav');

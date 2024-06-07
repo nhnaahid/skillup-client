@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import SocialButton from "../../../components/SocialButton/SocialButton";
 
 
-const SocialLogin = ({name}) => {
+const SocialLogin = ({ name }) => {
     const { googleSignIn } = useAuth();
     const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();

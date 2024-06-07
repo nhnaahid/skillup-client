@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const updateUserProfile = (name, email, photo) => {
+        console.log("image URL from AuthProvider", photo);
         return updateProfile(auth.currentUser, {
             displayName: name, email: email, photoURL: photo
         });

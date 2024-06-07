@@ -7,6 +7,8 @@ import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(true);
@@ -16,18 +18,44 @@ const SignUp = () => {
     const navigate = useNavigate();
 
     const onSubmit = data => {
+        let userInfo = {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            role: 'student'
+        }
+        const profilePic = { image: data.image[0] };
+        axiosPublic.post(image_hosting_api, profilePic, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+            .then(res => {
+                if (res.data.success) {
+                    userInfo = {
+                        ...userInfo,
+                        photoURL: res.data.data.display_url
+                    }
+                    // console.log('imgbb :', userInfo);
+                }
+            })
+        console.log('user all info from sign up: ', userInfo);
+
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
-                updateUserProfile(data.name, data.email, data.photoURL)
+                console.log('user from sign up: ', loggedUser);
+                // console.log('user photo from sign up: ', userInfo.photoURL);
+
+                updateUserProfile(data.name, data.email, userInfo.photoURL)
                     .then(() => {
-                        const userInfo = {
-                            name: data.name,
-                            email: data.email,
-                            photo: data.photoURL,
-                            role: 'student'
-                        }
+                        // const userInfo = {
+                        //     name: data.name,
+                        //     email: data.email,
+                        //     phone: data.phone,
+                        //     photo: data.photoURL,
+                        //     role: 'student'
+                        // }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
@@ -56,10 +84,9 @@ const SignUp = () => {
                     <input type="email" {...register("email", { required: true })} name="email" id="" placeholder="Email" className="border border-gray-300 p-2 md:p-3" />
                     {errors.email && <span className="text-red-600">Email is required</span>}
 
-                    <label>Photo URL</label>
-                    <input type="text" {...register("photoURL", { required: true })} id="" placeholder="Photo url" className="border border-gray-300 p-2 md:p-3" />
-                    {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
-
+                    <label>Phone Number</label>
+                    <input type="text" {...register("phone", { required: true })} id="" placeholder="Phone Number" className="border border-gray-300 p-2 md:p-3" />
+                    {errors.phone && <span className="text-red-600">Phone Number is required</span>}
 
                     <div>
                         <label>Password</label>
@@ -82,6 +109,17 @@ const SignUp = () => {
                             {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must have less than or equal 15 characters</p>}
                             {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have a Uppercase, lower case, number and special character.</p>}
                         </div>
+                    </div>
+
+                    {/* upload image */}
+                    <div>
+                        <label className="form-control w-full max-w-xs">
+                            <div className="label">
+                                <label>Upload Profile Picture</label>
+                            </div>
+                            <input {...register("image", { required: true })} type="file" className="file-input w-full max-w-xs" />
+                        </label>
+                        {errors.image && <span className="text-red-600">Profile Picture is required</span>}
                     </div>
 
                     <div className="flex gap-2 items-center">
