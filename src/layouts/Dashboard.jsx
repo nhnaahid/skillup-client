@@ -26,7 +26,7 @@ const Dashboard = () => {
             </div>
             <div className="flex gap-3">
                 {/* dashboard side bar */}
-                <div className="w-28 md:w-48 bg-blue-400 text-white font-semibold h-[50vh]">
+                <div className="w-28 md:w-48 bg-blue-400 text-white font-semibold h-fit md:h-[60vh]">
                     <ul className="menu p-4">
                         {
                             user && !isAdmin && !isTeacher && <>
