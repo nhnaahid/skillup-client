@@ -35,7 +35,9 @@ const NavBar = ({ isHome }) => {
     const navLink = <>
         <NavLink to="/"><p>Home</p></NavLink>
         <NavLink to="/all-courses"><p>All Courses</p></NavLink>
-        <NavLink to="/teach"><p>Teach On Skillup</p></NavLink>
+        {
+            !isTeacher && !isAdmin && <NavLink to="/teach"><p>Teach On Skillup</p></NavLink>
+        }
         {
             user && !isTeacher && !isAdmin && <NavLink to="/dashboard/studentProfile">Dashboard</NavLink>
         }

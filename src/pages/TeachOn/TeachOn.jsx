@@ -1,13 +1,33 @@
 import { Controller, useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import FormButton from "../../components/FormButton/FormButton";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const TeachOn = () => {
     const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
     // console.log(user);
     const { control, register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
-        console.log(data);
+        // console.log(data);
+        const teacherInfo = {
+            name: data.name,
+            image: data.image,
+            email: data.email,
+            title: data.title,
+            experience: data.experience,
+            category: data.category,
+            status: 'pending'
+        }
+        // console.log(teacherInfo);
+        const resTeacher = await axiosSecure.post('/teacherRequests', teacherInfo);
+        console.log('response on teacher request: ', resTeacher);
+        if (resTeacher.data.insertedId) {
+            reset();
+            toast.success('Teacher Request Send Successfully');
+        }
     }
     return (
         <div className="my-16">

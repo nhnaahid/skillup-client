@@ -24,9 +24,9 @@ const Dashboard = () => {
             <div className={`${isHome ? '' : 'h-[56px] md:h-[80px]'}`}>
                 <NavBar isHome={isHome}></NavBar>
             </div>
-            <div className="flex">
+            <div className="flex gap-3">
                 {/* dashboard side bar */}
-                <div className="w-48 bg-blue-400 text-white font-semibold">
+                <div className="w-28 md:w-48 bg-blue-400 text-white font-semibold h-[50vh]">
                     <ul className="menu p-4">
                         {
                             user && !isAdmin && !isTeacher && <>
@@ -88,7 +88,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* dashboard content */}
-                <div className="flex-1 p-8">
+                <div className="flex-1 overflow-x-auto">
                     <Outlet></Outlet>
                 </div>
             </div>
