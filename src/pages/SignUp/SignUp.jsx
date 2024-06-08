@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import FormButton from "../../components/FormButton/FormButton";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -111,7 +112,7 @@ const SignUp = () => {
                         <input type="checkbox" name="checkbox" id="" />
                         <p>I have read and agree to the <Link className="font-bold text-blue-500">Privacy Policy</Link></p>
                     </div>
-                    <input type="submit" value="Sign Up" className="w-full btn btn-sm md:btn-md btn-outline bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700" />
+                    <FormButton text="Sign Up"></FormButton>
                     <SocialLogin name="Sign Up"></SocialLogin>
                 </form>
             </div>

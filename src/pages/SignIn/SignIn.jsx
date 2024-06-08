@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import SmallButton from "../../components/SmallButton/SmallButton";
+import FormButton from "../../components/FormButton/FormButton";
 
 const Login = () => {
     const { signIn } = useAuth();
@@ -60,10 +61,8 @@ const Login = () => {
                                 </div>
                             </div>
                         </div>
-
-                        <Link><p className="my-1">Forget Password</p></Link>
-
-                        <input type="submit" value="Sign In" className="w-full btn btn-sm md:btn-md btn-outline bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700 mt-3" />
+                        <Link><p className="mt-2">Forget Password</p></Link>
+                        <FormButton text="Sign In"></FormButton>
                         <SocialLogin name="Sign In"></SocialLogin>
                     </form>
                 </div>

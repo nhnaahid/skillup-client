@@ -26,7 +26,7 @@ const Dashboard = () => {
             </div>
             <div className="flex">
                 {/* dashboard side bar */}
-                <div className="w-48 bg-blue-400 text-white">
+                <div className="w-48 bg-blue-400 text-white font-semibold">
                     <ul className="menu p-4">
                         {
                             user && !isAdmin && !isTeacher && <>
@@ -55,8 +55,8 @@ const Dashboard = () => {
                                         My Requests</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/addCourses">
-                                        Add Courses</NavLink>
+                                    <NavLink to="/dashboard/addCourse">
+                                        Add Course</NavLink>
                                 </li>
                             </>
                         }
