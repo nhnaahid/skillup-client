@@ -1,13 +1,19 @@
 import { Controller, useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
-import FormButton from "../../components/FormButton/FormButton";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const TeachOn = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
+    const [isPending, setIsPending] = useState(false);
+    axiosSecure.get(`/teacherRequests/${user.email}`)
+        .then(res => {
+            const requestList = res.data;
+            const result = requestList.some(request => request.status === 'pending')
+            setIsPending(result);
+        })
     // console.log(user);
     const { control, register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
@@ -95,7 +101,13 @@ const TeachOn = () => {
                         {errors.experience ? <p className="text-start text-red-600">{errors.experience.message}</p> : <p></p>}
                         {errors.category ? <p className="text-end text-red-600">{errors.category.message}</p> : <p></p>}
                     </div>
-                    <FormButton text="Submit"></FormButton>
+                    {/* <FormButton text="Submit"></FormButton> */}
+                    {
+                        isPending && <p className="text-red-600">* Your previous request is still pending. Please wait for SkillUp response. We will inform you soon.</p>
+                    }
+                    <div className="pt-3">
+                        <input type="submit" value="Submit" disabled={isPending} className="w-full btn btn-sm md:btn-md btn-outline bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700" />
+                    </div>
                 </form>
             </div>
         </div>
