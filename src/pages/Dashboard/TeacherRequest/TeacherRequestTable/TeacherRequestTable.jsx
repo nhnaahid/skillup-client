@@ -10,7 +10,35 @@ const TeacherRequestTable = ({ teacher, index }) => {
     const axiosSecure = useAxiosSecure()
     // console.log(teacher);
     const handleAcceptRequest = teacher => {
-        console.log(teacher._id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: `Do you want to accept ${teacher.name} as a Teacher`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Accept"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/teacherRequests/${teacher._id}`, { status: 'accepted' })
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            teacherRequestsRefetch();
+                            Swal.fire({
+                                title: "Accepted!",
+                                text: `${teacher.name}'s request as teacher is Accepted`,
+                                icon: "success"
+                            });
+                        }
+                    })
+                axiosSecure.patch(`/users/${teacher.email}`, { role: 'teacher' })
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            console.log("Success");
+                        }
+                    })
+            }
+        });
     }
     const handleRejectRequest = teacher => {
         // console.log(teacher.name);
