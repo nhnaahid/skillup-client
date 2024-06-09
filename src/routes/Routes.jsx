@@ -15,6 +15,8 @@ import AddCourse from "../pages/Dashboard/AddCourse/AddCourse";
 import TeachOn from "../pages/TeachOn/TeachOn";
 import TeacherRequest from "../pages/Dashboard/TeacherRequest/TeacherRequest";
 import TeacherCourses from "../pages/Dashboard/TeacherCourses/TeacherCourses";
+import TotalCourses from "../pages/Dashboard/TotalCourses/TotalCourses";
+
 
 
 const router = createBrowserRouter([
@@ -76,6 +78,10 @@ const router = createBrowserRouter([
             {
                 path: 'teacherRequests',
                 element: <AdminRoute><TeacherRequest></TeacherRequest></AdminRoute>
+            },
+            {
+                path: 'allCourses',
+                element: <AdminRoute><TotalCourses></TotalCourses></AdminRoute>
             }
 
         ]

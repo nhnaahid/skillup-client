@@ -73,12 +73,8 @@ const Dashboard = () => {
                                         Teacher Requests</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/classRequests">
-                                        Class Requests</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/dashboard/allClasses">
-                                        All Classes</NavLink>
+                                    <NavLink to="/dashboard/allCourses">
+                                        All Courses</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/allUsers">
