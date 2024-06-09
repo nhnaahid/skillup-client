@@ -4,6 +4,8 @@ import NavBar from "../pages/Shared/NavBar/NavBar";
 import useTeacher from "../hooks/useTeacher";
 import useAuth from "../hooks/useAuth";
 import Footer from "../pages/Shared/Footer/Footer";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Dashboard = () => {
@@ -20,13 +22,13 @@ const Dashboard = () => {
     const [isAdmin] = useAdmin();
 
     return (
-        <>
+        <div className="bg-base-200">
             <div className={`${isHome ? '' : 'h-[56px] md:h-[80px]'}`}>
                 <NavBar isHome={isHome}></NavBar>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 md:gap-5">
                 {/* dashboard side bar */}
-                <div className="w-28 md:w-48 bg-blue-400 text-white font-semibold h-fit md:h-[60vh]">
+                <div className="w-28 md:w-48 bg-white text-black font-semibold h-screen">
                     <ul className="menu p-4">
                         {
                             user && !isAdmin && !isTeacher && <>
@@ -88,12 +90,24 @@ const Dashboard = () => {
                 </div>
 
                 {/* dashboard content */}
-                <div className="flex-1 overflow-x-auto">
+                <div className="flex-1 overflow-x-auto bg-white h-fit pb-5">
                     <Outlet></Outlet>
                 </div>
             </div>
             <Footer></Footer>
-        </>
+            <ToastContainer
+                position="top-right"
+                autoClose={1500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+        </div>
     );
 };
 

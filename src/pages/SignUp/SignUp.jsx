@@ -103,15 +103,15 @@ const SignUp = () => {
                             <div className="label">
                                 <label>Upload Profile Picture</label>
                             </div>
-                            <input {...register("image", { required: true })} type="file" className="file-input w-full max-w-xs" />
+                            <input {...register("image", { required: true })} type="file" className="file-input rounded-none w-full max-w-xs" />
                         </label>
                         {errors.image && <span className="text-red-600">Profile Picture is required</span>}
                     </div>
 
-                    <div className="flex gap-2 items-center">
+                    {/* <div className="flex gap-2 items-center">
                         <input type="checkbox" name="checkbox" id="" />
                         <p>I have read and agree to the <Link className="font-bold text-blue-500">Privacy Policy</Link></p>
-                    </div>
+                    </div> */}
                     <FormButton text="Sign Up"></FormButton>
                     <SocialLogin name="Sign Up"></SocialLogin>
                 </form>
