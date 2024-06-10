@@ -88,7 +88,15 @@ const TeacherRequestTable = ({ teacher, index }) => {
                 </td>
                 <td>{teacher.category}</td>
                 <td>{teacher.experience}</td>
-                <td>{teacher.status}</td>
+                {
+                    teacher.status === 'accepted' && <td><p className="text-white bg-green-500 rounded-2xl p-1 text-center">Accepted</p></td>
+                }
+                {
+                    teacher.status === 'rejected' && <td><p className="text-white bg-red-500 rounded-2xl p-1 text-center">Rejected</p></td>
+                }
+                {
+                    teacher.status === 'pending' && <td><p className="text-white bg-yellow-500 rounded-2xl p-1 text-center">Pending</p></td>
+                }
                 <td>
                     <div className="flex gap-5">
                         <button onClick={() => handleAcceptRequest(teacher)} className="text-xl rounded-full  my-btn p-2 tooltip" data-tip="Accept" disabled={teacher.status !== 'pending'}><SiTicktick /></button>

@@ -16,6 +16,8 @@ import TeachOn from "../pages/TeachOn/TeachOn";
 import TeacherRequest from "../pages/Dashboard/TeacherRequest/TeacherRequest";
 import TeacherCourses from "../pages/Dashboard/TeacherCourses/TeacherCourses";
 import TotalCourses from "../pages/Dashboard/TotalCourses/TotalCourses";
+import CourseDetails from "../pages/CourseDetails/CourseDetails";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 
 
@@ -43,6 +45,11 @@ const router = createBrowserRouter([
             {
                 path: '/teach',
                 element: <PrivateRoute><TeachOn></TeachOn></PrivateRoute>
+            },
+            {
+                path: '/all-courses/:id',
+                element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses/valid-courses/${params.id}`)
             }
         ]
     },
@@ -82,8 +89,11 @@ const router = createBrowserRouter([
             {
                 path: 'allCourses',
                 element: <AdminRoute><TotalCourses></TotalCourses></AdminRoute>
+            },
+            {
+                path: 'allUsers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             }
-
         ]
     }
 ]);

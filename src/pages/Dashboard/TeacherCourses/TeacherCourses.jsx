@@ -27,7 +27,7 @@ const TeacherCourses = () => {
             image: course.courseImage,
             title: course.title,
             price: course.price,
-            description: course.description,
+            description: course.description.slice(0, 20) + '...',
             status: course.status
         }
         tableInfo = [...tableInfo, courseInfo];

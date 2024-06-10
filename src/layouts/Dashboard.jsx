@@ -52,10 +52,10 @@ const Dashboard = () => {
                                     <NavLink to="/dashboard/teacherCourses">
                                         My Courses</NavLink>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <NavLink to="/dashboard/myRequests">
                                         My Requests</NavLink>
-                                </li>
+                                </li> */}
                                 <li>
                                     <NavLink to="/dashboard/addCourse">
                                         Add Course</NavLink>

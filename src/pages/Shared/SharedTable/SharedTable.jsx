@@ -4,10 +4,11 @@ import { RxCrossCircled, RxUpdate } from "react-icons/rx";
 import { SiTicktick } from "react-icons/si";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { GrUserAdmin } from "react-icons/gr";
 
 
 // TODO: refetch need to send and receive
-const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch }) => {
+const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch }) => {
     const axiosSecure = useAxiosSecure();
     const handleAccept = data => {
         console.log(data.title);
@@ -65,7 +66,31 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch }) => {
     const handleDelete = data => {
         console.log(data.title);
     }
-
+    const handleMakeAdmin = data => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: `Do you want to make ${data.name} an Admin`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Make Admin"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/${data.email}`, { role: 'admin' })
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            userRefetch();
+                            Swal.fire({
+                                title: "Access Given!",
+                                text: `${data.name} is an Admin now.`,
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
     return (
         <div className="overflow-x-auto mt-12">
             <table className="table">
@@ -117,6 +142,13 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch }) => {
                             }
                             {
                                 data.email && <td>{data.email}</td>
+                            }
+                            {
+                                data.role && <>
+                                    {
+                                        data.role === 'admin' ? <td><p className="text-white bg-red-400 rounded-2xl p-1 text-center">Admin</p></td> : <td> <button onClick={() => handleMakeAdmin(data)} className="text-2xl rounded-full my-btn p-2 tooltip" data-tip="Make Admin"><GrUserAdmin /></button> </td>
+                                    }
+                                </>
                             }
                             {
                                 data.status === 'approved' && <td><p className="text-white bg-green-500 rounded-2xl p-1 text-center">Approved</p></td>

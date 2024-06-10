@@ -43,7 +43,9 @@ const Login = () => {
                     <h2 className="font-merri font-semibold text-xl">New User</h2>
                     <p className="text-gray-700">Sign Up</p>
                     <p className="text-sm">By creating an account you will be able to enroll courses, up to date with new courses and latest offers.</p>
-                    <Link to="/signup"><SmallButton name="Sign Up"></SmallButton></Link>
+                    <div className="w-2/5 md:w-1/5 mx-auto">
+                        <Link to="/signup"><SmallButton name="Sign Up"></SmallButton></Link>
+                    </div>
                 </div>
                 <div className="w-full md:w-3/5 border border-gray-300 p-2 md:p-4 space-y-3">
                     <h2 className="font-merri font-semibold text-xl">Returning User</h2>
