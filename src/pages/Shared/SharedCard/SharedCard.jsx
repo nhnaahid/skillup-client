@@ -24,7 +24,7 @@ const SharedCard = ({ data, url }) => {
                         </div>
                     </div>
                     <div className="card-actions justify-center">
-                        <Link to={url}><SmallButton name="Enroll Now"></SmallButton></Link>
+                        <Link to={url} className="w-full"><SmallButton name="Enroll Now"></SmallButton></Link>
                     </div>
                 </div>
             </div>

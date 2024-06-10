@@ -1,16 +1,26 @@
 import { FaUsers } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SmallButton from "../../components/SmallButton/SmallButton";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useState } from "react";
 
 const CourseDetails = () => {
-    const course = useLoaderData();
+    // const course = useLoaderData();
+    const { id } = useParams();
+    const axiosSecure = useAxiosSecure();
+    const [course, setCourse] = useState({});
+
+    axiosSecure.get(`/courses/valid-courses/${id}`)
+        .then(res => setCourse(res.data))
+
     const { name, email, teacherImage, title, courseImage, price, description } = course;
+
     return (
-        <div className="mb-20 font-inter">
-            <h1 className="w-full md:w-4/5 mx-auto border-b border-gray-300 tracking-wide text-2xl p-2 mt-5">Course Details</h1>
-            <div className="w-full md:w-4/5 mx-auto mt-5 flex flex-col md:flex-row gap-7">
-                <figure className="w-full md:w-2/5 h-[500px] bg-white p-3">
-                    <img className="w-full h-full object-cover" src={courseImage} alt="" />
+        <div className="mb-20 mt-10 font-inter px-2">
+            <h1 className="w-full border-b border-gray-300 tracking-wide text-2xl mt-5">Course Details</h1>
+            <div className="w-full mt-5 flex flex-col md:flex-row gap-3 md:gap-7">
+                <figure className="w-full h-full md:h-[360px] md:w-2/5 bg-white p-3">
+                    <img className="w-full h-full object-contain md:object-cover" src={courseImage} alt="" />
                 </figure>
                 <div className="w-full md:w-3/5 h-fit bg-white p-3">
                     <h1 className="text-2xl font-semibold border-b pb-1 font-merri">{title}</h1>

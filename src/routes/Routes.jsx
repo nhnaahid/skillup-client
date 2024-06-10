@@ -18,6 +18,7 @@ import TeacherCourses from "../pages/Dashboard/TeacherCourses/TeacherCourses";
 import TotalCourses from "../pages/Dashboard/TotalCourses/TotalCourses";
 import CourseDetails from "../pages/CourseDetails/CourseDetails";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import Payment from "../pages/Payment/Payment";
 
 
 
@@ -49,7 +50,11 @@ const router = createBrowserRouter([
             {
                 path: '/all-courses/:id',
                 element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/valid-courses/${params.id}`)
+                // loader: ({ params }) => fetch(`http://localhost:5000/courses/valid-courses/${params.id}`)
+            },
+            {
+                path: '/payment',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>
             }
         ]
     },
