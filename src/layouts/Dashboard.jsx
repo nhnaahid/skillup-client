@@ -37,8 +37,8 @@ const Dashboard = () => {
                                         Profile</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/studentCourses">
-                                        My Courses</NavLink>
+                                    <NavLink to="/dashboard/my-enrolls">
+                                        My Enrolls</NavLink>
                                 </li>
                             </>
                         }

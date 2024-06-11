@@ -19,6 +19,7 @@ import TotalCourses from "../pages/Dashboard/TotalCourses/TotalCourses";
 import CourseDetails from "../pages/CourseDetails/CourseDetails";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import Payment from "../pages/Payment/Payment";
+import MyEnrolls from "../pages/Dashboard/MyEnrolls/MyEnrolls";
 
 
 
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
                 // loader: ({ params }) => fetch(`http://localhost:5000/courses/valid-courses/${params.id}`)
             },
             {
-                path: '/payment',
+                path: '/payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>
             }
         ]
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
             {
                 path: 'studentProfile',
                 element: <StudentProfile></StudentProfile>
+            },
+            {
+                path: 'my-enrolls',
+                element: <MyEnrolls></MyEnrolls>
             },
 
             // teacher routes
