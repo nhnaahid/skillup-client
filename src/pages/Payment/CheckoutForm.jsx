@@ -101,7 +101,6 @@ const CheckoutForm = ({ course }) => {
                     courseTitle: course.title,
                     courseImage: course.courseImage,
                     coursePrice: coursePrice,
-                    transactionId: paymentIntent.id,
                     date: new Date(), // utc date convert. use moment js to do that
                 }
 

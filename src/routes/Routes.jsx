@@ -20,6 +20,7 @@ import CourseDetails from "../pages/CourseDetails/CourseDetails";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import Payment from "../pages/Payment/Payment";
 import MyEnrolls from "../pages/Dashboard/MyEnrolls/MyEnrolls";
+import EnrollClassDetails from "../pages/Dashboard/EnrollClassDetails/EnrollClassDetails";
 
 
 
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
             {
                 path: 'my-enrolls',
                 element: <MyEnrolls></MyEnrolls>
+            },
+            {
+                path: 'my-enrolls/:id',
+                element: <EnrollClassDetails></EnrollClassDetails>
             },
 
             // teacher routes

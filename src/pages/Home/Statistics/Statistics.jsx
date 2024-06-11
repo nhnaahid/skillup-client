@@ -27,7 +27,7 @@ const Statistics = () => {
         <div data-aos="zoom-in-up" data-aos-duration="1000" className="w-4/5 mx-auto mt-20 flex flex-col-reverse md:flex-row items-center justify-between font-inter">
             {/* data */}
             <div className="w-full md:w-2/5 h-full flex flex-col gap-3">
-                <div className="stats shadow">
+                <div className="stats shadow rounded-none">
 
                     <div className="stat text-center">
                         <div className="stat-value text-blue-500 font-merri">{totalUsers}</div>
@@ -35,7 +35,7 @@ const Statistics = () => {
                     </div>
 
                 </div>
-                <div className="stats shadow">
+                <div className="stats shadow rounded-none">
 
                     <div className="stat text-center">
                         <div className="stat-value text-blue-500 font-merri">{totalCourses}</div>
@@ -43,7 +43,7 @@ const Statistics = () => {
                     </div>
 
                 </div>
-                <div className="stats shadow">
+                <div className="stats shadow rounded-none">
 
                     <div className="stat text-center">
                         <div className="stat-value text-blue-500 font-merri">{totalEnrolls}</div>
