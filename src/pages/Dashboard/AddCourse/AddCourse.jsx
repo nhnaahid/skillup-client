@@ -47,6 +47,7 @@ const AddCourse = () => {
                 })
         }
     }
+
     return (
 
         <div className="w-4/5 mx-auto">
@@ -85,7 +86,7 @@ const AddCourse = () => {
                     {errors.image && <span className="text-red-600">Course Image is required</span>}
                 </div>
 
-                <FormButton text="Add Class"></FormButton>
+                <FormButton text="Add Course"></FormButton>
             </form>
         </div>
     );

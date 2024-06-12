@@ -5,6 +5,7 @@ import { SiTicktick } from "react-icons/si";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { GrUserAdmin } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 
 // TODO: refetch need to send and receive
@@ -163,7 +164,7 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
                                 data.status === 'pending' && <td><p className="text-white bg-yellow-500 rounded-2xl p-1 text-center">Pending</p></td>
                             }
                             {
-                                buttons.map((btn, idx) => btn === 'update' && <td key={idx}> <button className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Update"><RxUpdate /></button> </td>)
+                                buttons.map((btn, idx) => btn === 'update' && <td key={idx}> <Link to={`/dashboard/teacherCourses/${data._id}`}><button className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Update"><RxUpdate /></button> </Link></td>)
                             }
                             {
                                 buttons.map((btn, idx) => btn === 'delete' && <td key={idx}> <button onClick={() => handleDelete(data)} className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Delete"><RiDeleteBin6Line /></button> </td>)
