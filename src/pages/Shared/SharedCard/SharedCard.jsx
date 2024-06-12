@@ -4,22 +4,14 @@ import SmallButton from "../../../components/SmallButton/SmallButton";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from "react-router-dom";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
+import useEnrolls from "../../../hooks/useEnrolls";
 AOS.init();
 
 const SharedCard = ({ data, btnText, url }) => {
     console.log('I am shared card');
     // console.log(data._id);
-    const axiosPublic = useAxiosPublic();
-    const { data: totalEnrolls = [], refetch: totalEnrollsRefetch } = useQuery({
-        queryKey: ['totalEnroll', data._id],
-        queryFn: async () => {
-            const res = await axiosPublic.get(`/enrolls/course/${data._id}`);
-            return res.data;
-        }
-    })
-    console.log("From shared card: ", totalEnrolls);
+    const [totalEnrolls, totalEnrollsRefetch] = useEnrolls(data._id);
+    // console.log("From shared card: ", totalEnrolls);
     return (
         <div data-aos="zoom-in-up" data-aos-duration="700">
             <div className="card w-full h-full bg-base-100 border rounded-none space-y-2 font-inter hover:shadow-2xl duration-500">

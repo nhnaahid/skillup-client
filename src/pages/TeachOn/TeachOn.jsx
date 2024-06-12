@@ -3,11 +3,15 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import useTeacher from "../../hooks/useTeacher";
+import useAdmin from "../../hooks/useAdmin";
 
 const TeachOn = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const [isPending, setIsPending] = useState(false);
+    const [isTeacher] = useTeacher();
+    const [isAdmin] = useAdmin();
     axiosSecure.get(`/teacherRequests/${user.email}`)
         .then(res => {
             const requestList = res.data;
@@ -105,8 +109,14 @@ const TeachOn = () => {
                     {
                         isPending && <p className="text-red-600">* Your previous request is still pending. Please wait for SkillUp response. We will inform you soon.</p>
                     }
+                    {
+                        isTeacher && <p className="text-red-600">* You are already a registered SkillUp Teacher</p>
+                    }
+                    {
+                        isAdmin && <p className="text-red-600">* Admin cannot be a teacher</p>
+                    }
                     <div className="pt-3">
-                        <input type="submit" value="Submit" disabled={isPending} className="w-full btn btn-sm md:btn-md btn-outline bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700" />
+                        <input type="submit" value="Submit" disabled={isPending || isTeacher || isAdmin} className="w-full btn btn-sm md:btn-md btn-outline bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700" />
                     </div>
                 </form>
             </div>

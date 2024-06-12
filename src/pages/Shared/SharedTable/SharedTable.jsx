@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 
 // TODO: refetch need to send and receive
-const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch }) => {
+const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch, teacherCourseRefetch }) => {
     const axiosSecure = useAxiosSecure();
     const handleAccept = data => {
         console.log(data.title);
@@ -65,7 +65,29 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
         });
     }
     const handleDelete = data => {
-        console.log(data.title);
+        Swal.fire({
+            title: "Are you sure?",
+            text: `Do you want to delete this course.`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Delete"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/courses/${data._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            teacherCourseRefetch();
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your course has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
     }
     const handleMakeAdmin = data => {
         Swal.fire({
@@ -152,6 +174,15 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
                                 </>
                             }
                             {
+                                data.publishDate && <td>{data.publishDate}</td>
+                            }
+                            {
+                                data.deadline && <td>{data.deadline}</td>
+                            }
+                            {
+                                data.submissionCount >= 0 && <td className="text-center">{data.submissionCount}</td>
+                            }
+                            {
                                 data.status === 'approved' && <td><p className="text-white bg-green-500 rounded-2xl p-1 text-center">Approved</p></td>
                             }
                             {
@@ -170,7 +201,7 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
                                 buttons.map((btn, idx) => btn === 'delete' && <td key={idx}> <button onClick={() => handleDelete(data)} className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Delete"><RiDeleteBin6Line /></button> </td>)
                             }
                             {
-                                buttons.map((btn, idx) => btn === 'details' && <td key={idx}> <button className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Show Details"><BiSolidDetail /></button> </td>)
+                                buttons.map((btn, idx) => btn === 'details' && <td key={idx}><Link to={`/dashboard/teacherCourses/details/${data._id}`}><button disabled={data.status !== 'approved'} className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Show Details"><BiSolidDetail /></button></Link> </td>)
                             }
                             {
                                 buttons.map((btn, idx) => btn === 'accept' && <td key={idx}> <button onClick={() => handleAccept(data)} className="text-xl rounded-full  my-btn p-2 tooltip" data-tip="Accept" disabled={data.status !== 'pending'}><SiTicktick /></button> </td>)
@@ -182,7 +213,7 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
                                 buttons.map((btn, idx) => btn === 'reject' && <td key={idx}> <button onClick={() => handleReject(data)} className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Reject" disabled={data.status !== 'pending'}><RxCrossCircled /></button></td>)
                             }
                             {
-                                buttons.map((btn, idx) => btn === 'progress' && <td key={idx}> <button className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="See Progress" disabled={data.status !== 'accepted'}><RiProgress5Line /></button></td>)
+                                buttons.map((btn, idx) => btn === 'progress' && <td key={idx}> <Link to="/"> <button disabled={data.status !== 'approved'} className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="See Progress"><RiProgress5Line /> </button> </Link></td>)
                             }
                         </tr>)
                     }

@@ -17,7 +17,7 @@ const BeTeacher = () => {
                 <h1 className='text-2xl md:text-3xl font-merri font-bold'>Become a Teacher</h1>
                 <p className='text-gray-700 text-sm md:text-base'>Are you passionate about shaping the future? Take the first step towards a rewarding career in education. Join as a SkillUp Teacher today and start making a difference in the lives of students.</p>
                 <div className='w-1/2 lg:w-2/5'>
-                    <Link><SmallButton name="Start Teaching Today"></SmallButton></Link>
+                    <Link to="/teach"><SmallButton name="Start Teaching Today"></SmallButton></Link>
                 </div>
             </div>
         </div>

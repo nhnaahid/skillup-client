@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
 
 const useCourse = (id) => {
-    console.log('from useCourse id: ', id);
+    // console.log('from useCourse id: ', id);
     const axiosSecure = useAxiosSecure();
     const { data: oneCourse = [], refetch: oneCourseRefetch } = useQuery({
         queryKey: ['oneCourse', id],

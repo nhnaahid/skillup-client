@@ -22,6 +22,7 @@ import Payment from "../pages/Payment/Payment";
 import MyEnrolls from "../pages/Dashboard/MyEnrolls/MyEnrolls";
 import EnrollClassDetails from "../pages/Dashboard/EnrollClassDetails/EnrollClassDetails";
 import UpdateCourse from "../pages/Dashboard/UpdateCourse/UpdateCourse";
+import TeacherCourseDetails from "../pages/Dashboard/TeacherCourseDetails/TeacherCourseDetails";
 
 
 
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
             {
                 path: 'teacherCourses/:id',
                 element: <TeacherRoute><UpdateCourse></UpdateCourse></TeacherRoute>
+            },
+            {
+                path: 'teacherCourses/details/:id',
+                element: <TeacherRoute><TeacherCourseDetails></TeacherCourseDetails></TeacherRoute>
             },
 
             // admin routes

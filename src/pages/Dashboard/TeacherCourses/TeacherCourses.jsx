@@ -36,7 +36,7 @@ const TeacherCourses = () => {
     return (
         <div>
             <PageHeadline headline="My Courses" text="All the courses you have uploaded is here. Some courses might be in pending phase for skillUp review. In that case please wait for skillUp response."></PageHeadline>
-            <SharedTable dataList={tableInfo} tableHeads={tableHeads} buttons={buttons}></SharedTable>
+            <SharedTable dataList={tableInfo} tableHeads={tableHeads} buttons={buttons} teacherCourseRefetch={teacherCourseRefetch}></SharedTable>
         </div>
     );
 };
