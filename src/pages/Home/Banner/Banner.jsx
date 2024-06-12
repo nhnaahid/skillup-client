@@ -1,5 +1,6 @@
 import { Slide } from 'react-awesome-reveal';
 import banner from '../../../assets/banner.mp4'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -12,7 +13,7 @@ const Banner = () => {
                     <h1 className='text-3xl lg:text-5xl font-extrabold uppercase font-merri'>Welcome To SkillUp</h1>
                     <p className='font-semibold lg:text-xl font-inter'>Own Your Future By Learning New Skills Online</p>
                     <div className='mt-3'>
-                        <button className="btn btn-sm md:btn-md bg-transparent rounded-none text-white uppercase hover:text-blue-300 hover:bg-transparent font-inter text-xs md:text-sm">Get Started</button>
+                        <Link to="/all-courses"><button className="btn btn-sm md:btn-md bg-transparent rounded-none text-white uppercase hover:text-blue-300 hover:bg-transparent font-inter text-xs md:text-sm">Get Started</button></Link>
                     </div>
                 </Slide>
 

@@ -10,7 +10,7 @@ const MyEnrolls = () => {
     const { data: myEnrolls = [], refetch: myEnrollsRefetch } = useQuery({
         queryKey: ['myEnroll'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/enrolls/${user.email}`);
+            const res = await axiosSecure.get(`/enrolls/student/${user.email}`);
             return res.data;
         }
     })

@@ -9,13 +9,13 @@ import { useQuery } from "@tanstack/react-query";
 AOS.init();
 
 const SharedCard = ({ data, btnText, url }) => {
-    // console.log('I am shared card');
+    console.log('I am shared card');
     // console.log(data._id);
     const axiosPublic = useAxiosPublic();
     const { data: totalEnrolls = [], refetch: totalEnrollsRefetch } = useQuery({
         queryKey: ['totalEnroll', data._id],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/enrolls/${data._id}`);
+            const res = await axiosPublic.get(`/enrolls/course/${data._id}`);
             return res.data;
         }
     })

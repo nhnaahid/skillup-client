@@ -1,8 +1,11 @@
+import useOneUser from "../../../hooks/useOneUser";
+import SharedProfile from "../../Shared/SharedProfile/SharedProfile";
 
 const AdminProfile = () => {
+    const [oneUser] = useOneUser();
     return (
         <div>
-            <h1>Admin Profile</h1>
+            <SharedProfile user={oneUser}></SharedProfile>
         </div>
     );
 };
