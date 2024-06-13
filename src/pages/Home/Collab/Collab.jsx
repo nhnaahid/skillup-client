@@ -11,7 +11,7 @@ import jhu from '../../../assets/collab/jhu.png'
 
 const Collab = () => {
     return (
-        <div data-aos="zoom-in-up" data-aos-duration="1000" className='w-full md:w-4/5 mx-auto space-y-5 mt-16 px-2'>
+        <div data-aos="zoom-in-up" data-aos-duration="1000" className='w-full md:w-4/5 mx-auto space-y-5 mt-24 px-2'>
             <div className='text-center'>
                 <h1 className='text-xl md:text-3xl'>Learn from <span className='font-bold'>200+</span> leading universities and companies with SkillUp</h1>
             </div>

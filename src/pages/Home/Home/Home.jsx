@@ -6,6 +6,7 @@ import BeTeacher from "../BeTeacher/BeTeacher";
 import Featured from "../Featured/Featured";
 import NewsLetter from "../NewsLetter/NewsLetter";
 import Feedback from "../Feedback/Feedback";
+import Popular from "../Popular/Popular";
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <Collab></Collab>
+            <Popular></Popular>
             <Featured></Featured>
             <Statistics></Statistics>
             <BeTeacher></BeTeacher>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import FeedbackCard from "../../Shared/FeedbackCard/FeedbackCard";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,17 +8,20 @@ import { FreeMode, Pagination } from 'swiper/modules';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useQuery } from "@tanstack/react-query";
 AOS.init();
 
 const Feedback = () => {
     const axiosPublic = useAxiosPublic();
-    const [feedbacks, setFeedbacks] = useState([]);
-    axiosPublic.get('/feedbacks')
-        .then(res => {
-            setFeedbacks(res.data);
-        })
+    const { data: feedbacks = [] } = useQuery({
+        queryKey: ['feedbacks'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/feedbacks');
+            return res.data;
+        }
+    })
     return (
-        <div data-aos="zoom-in-up" data-aos-duration="1000" className="mt-32 px-3 md:px-8">
+        <div data-aos="zoom-in-up" data-aos-duration="1000" className="mt-24 px-3 md:px-8">
             <div className="w-full md:w-1/2 mx-auto text-center mb-16 space-y-3">
                 <p className="font-marri font-semibold md:text-lg text-gray-700">PEOPLE ARE PRAISING SKILLUP</p>
                 <h1 className="font-merri font-bold text-2xl md:text-4xl">What make they <span className="text-blue-500">love us?</span></h1>
@@ -45,7 +47,7 @@ const Feedback = () => {
                     className="mySwiper"
                 >
                     {
-                        feedbacks.slice(0,8).map(feedback => <SwiperSlide key={feedback._id}><FeedbackCard
+                        feedbacks.slice(0, 8).map(feedback => <SwiperSlide key={feedback._id}><FeedbackCard
                             image={feedback.image}
                             title={feedback.title}
                             ratings={feedback.ratings}

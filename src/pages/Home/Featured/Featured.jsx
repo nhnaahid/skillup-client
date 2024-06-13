@@ -3,7 +3,7 @@ import student from '../../../assets/student-group.jpg'
 
 const Featured = () => {
     return (
-        <div className="hero min-h-screen bg-fixed mt-20 font-inter" style={{ backgroundImage: `url(${student})` }}>
+        <div className="hero min-h-screen bg-fixed mt-24 font-inter" style={{ backgroundImage: `url(${student})` }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="w-full md:w-3/4 mx-auto">

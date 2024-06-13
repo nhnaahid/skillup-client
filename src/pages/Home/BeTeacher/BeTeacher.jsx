@@ -7,7 +7,7 @@ AOS.init();
 
 const BeTeacher = () => {
     return (
-        <div data-aos="zoom-in-up" data-aos-duration="1000" className='flex flex-col md:flex-row items-center justify-between gap-7 font-inter mt-28 px-5'>
+        <div data-aos="zoom-in-up" data-aos-duration="1000" className='flex flex-col md:flex-row items-center justify-between gap-7 font-inter mt-24 px-5'>
             {/* image */}
             <div className='w-full md:w-1/2'>
                 <img src={teacher} alt="Teacher" />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import statBanner from '../../../assets/stat-banner.jpg'
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
@@ -12,16 +12,18 @@ const Statistics = () => {
     const [totalEnrolls, setTotalEnrolls] = useState(0);
 
     const axiosPublic = useAxiosPublic();
-    axiosPublic.get('/stats')
-        .then(res => {
-            setTotalUsers(res.data.users)
-            setTotalEnrolls(res.data.enrolls)
+    useEffect(() => {
+        axiosPublic.get('/stats')
+            .then(res => {
+                setTotalUsers(res.data.users)
+                setTotalEnrolls(res.data.enrolls)
 
-        })
-    axiosPublic.get('/courses/valid-courses')
-        .then(res => {
-            setTotalCourses(res.data.length)
-        })
+            })
+        axiosPublic.get('/courses/valid-courses')
+            .then(res => {
+                setTotalCourses(res.data.length)
+            })
+    }, [axiosPublic])
 
     return (
         <div data-aos="zoom-in-up" data-aos-duration="1000" className="w-4/5 mx-auto mt-28 flex flex-col-reverse md:flex-row items-center justify-between font-inter">

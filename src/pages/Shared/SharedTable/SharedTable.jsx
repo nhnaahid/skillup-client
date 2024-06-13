@@ -229,7 +229,7 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
                                 buttons.map((btn, idx) => btn === 'reject' && <td key={idx}> <button onClick={() => handleReject(data)} className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Reject" disabled={data.status !== 'pending'}><RxCrossCircled /></button></td>)
                             }
                             {
-                                buttons.map((btn, idx) => btn === 'progress' && <td key={idx}> <Link to="/"> <button disabled={data.status !== 'approved'} className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="See Progress"><RiProgress5Line /> </button> </Link></td>)
+                                buttons.map((btn, idx) => btn === 'progress' && <td key={idx}> <Link to={`/dashboard/allCourses/${data._id}`}> <button disabled={data.status !== 'approved'} className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="See Progress"><RiProgress5Line /> </button> </Link></td>)
                             }
                         </tr>)
                     }

@@ -40,6 +40,17 @@ const SharedCard = ({ data, btnText, url }) => {
                             </div>
                         </div>
                     }
+                    {
+                        data.coursePrice && <div className=" flex justify-between items-center my-2">
+                            <p className="font-semibold text-xl">$ {data.coursePrice}</p>
+                            <div className="flex items-center justify-center gap-1">
+                                <div className="text-xl">
+                                    <FaUsers />
+                                </div>
+                                <p>{data.enrollmentCount}</p>
+                            </div>
+                        </div>
+                    }
                     <div className="card-actions justify-center">
                         <Link to={url} className="w-full"><SmallButton name={btnText}></SmallButton></Link>
                     </div>
