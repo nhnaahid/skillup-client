@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import FormButton from "../../components/FormButton/FormButton";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -38,7 +39,7 @@ const SignUp = () => {
             createUser(data.email, data.password)
                 .then(result => {
                     const loggedUser = result.user;
-                    console.log('user from sign up: ', loggedUser);
+                    // console.log('user from sign up: ', loggedUser);
                     updateUserProfile(data.name, data.email, userInfo.photoURL)
                         .then(() => {
                             axiosPublic.post('/users', userInfo)
@@ -57,6 +58,9 @@ const SignUp = () => {
 
     return (
         <div className="my-16">
+            <Helmet>
+                <title>SkillUp | Sign Up</title>
+            </Helmet>
             <div className="w-4/5 md:w-3/5 mx-auto mt-5">
                 <p className="font-semibold mb-5">If you already have an account, please sign in at the <Link to="/signin"><span className="text-blue-500 font-bold">sign in page.</span></Link></p>
                 <h1 className="border-b border-gray-300 font-merri tracking-wide text-2xl py-2">Your Personal Details</h1>

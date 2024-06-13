@@ -2,7 +2,6 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -25,7 +24,7 @@ const CheckoutForm = ({ course }) => {
         if (coursePrice > 0) {
             axiosSecure.post('/create-payment-intent', { price: coursePrice })
                 .then(res => {
-                    console.log(res.data.clientSecret);
+                    // console.log(res.data.clientSecret);
                     setClientSecret(res.data.clientSecret);
                 })
         }
@@ -50,11 +49,11 @@ const CheckoutForm = ({ course }) => {
         })
 
         if (error) {
-            console.log('payment error', error);
+            // console.log('payment error', error);
             setError(error.message);
         }
         else {
-            console.log('payment method', paymentMethod)
+            // console.log('payment method', paymentMethod)
             setError('');
         }
 
@@ -70,12 +69,12 @@ const CheckoutForm = ({ course }) => {
         })
 
         if (confirmError) {
-            console.log('confirm error')
+            // console.log('confirm error')
         }
         else {
-            console.log('payment intent', paymentIntent)
+            // console.log('payment intent', paymentIntent)
             if (paymentIntent.status === 'succeeded') {
-                console.log('transaction id', paymentIntent.id);
+                // console.log('transaction id', paymentIntent.id);
                 setTransactionId(paymentIntent.id);
 
                 // now save the payment in the database
@@ -105,10 +104,10 @@ const CheckoutForm = ({ course }) => {
                 }
 
                 const resEnrolls = await axiosSecure.post('/enrolls', enrollInfo)
-                console.log('enrolls: ', resEnrolls.data);
+                // console.log('enrolls: ', resEnrolls.data);
 
                 const resPayment = await axiosSecure.post('/payments', paymentInfo);
-                console.log('payment saved', resPayment.data);
+                // console.log('payment saved', resPayment.data);
                 if (resPayment.data?.insertedId) {
                     Swal.fire({
                         position: "top-end",

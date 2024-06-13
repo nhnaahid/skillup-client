@@ -1,6 +1,7 @@
 import PageHeadline from "../../Shared/PageHeadline/PageHeadline";
 import useTeacherRequest from "../../../hooks/useTeacherRequest";
 import TeacherRequestTable from "./TeacherRequestTable/TeacherRequestTable";
+import { Helmet } from "react-helmet-async";
 
 
 const TeacherRequest = () => {
@@ -8,6 +9,9 @@ const TeacherRequest = () => {
     // console.log(teacherRequests);
     return (
         <div>
+            <Helmet>
+                <title>SkillUp | Teacher Requests</title>
+            </Helmet>
             <PageHeadline headline="Teacher Requests" text="All the requests made by teacher is here. To Approve or Reject the requests press the corresponding button."></PageHeadline>
             <div className="overflow-x-auto mt-12">
                 <table className="table">

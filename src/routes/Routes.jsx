@@ -55,7 +55,6 @@ const router = createBrowserRouter([
             {
                 path: '/all-courses/:id',
                 element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
-                // loader: ({ params }) => fetch(`http://localhost:5000/courses/valid-courses/${params.id}`)
             },
             {
                 path: '/payment/:id',

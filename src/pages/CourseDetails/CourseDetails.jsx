@@ -2,6 +2,7 @@ import { FaUsers } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import SmallButton from "../../components/SmallButton/SmallButton";
 import useCourse from "../../hooks/useCourse";
+import { Helmet } from "react-helmet-async";
 
 const CourseDetails = () => {
     // const course = useLoaderData();
@@ -12,6 +13,9 @@ const CourseDetails = () => {
 
     return (
         <div className="mb-20 mt-16 font-inter px-2">
+            <Helmet>
+                <title>SkillUp | Course Details</title>
+            </Helmet>
             <div className="w-full flex flex-col md:flex-row gap-3 md:gap-7">
                 <figure className="w-full h-full md:h-[360px] md:w-2/5 bg-white p-3">
                     <img className="w-full h-full object-contain md:object-cover" src={courseImage} alt="" />

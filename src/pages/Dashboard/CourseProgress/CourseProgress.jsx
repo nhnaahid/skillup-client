@@ -11,6 +11,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { FreeMode, Pagination } from 'swiper/modules';
 import FeedbackCard from "../../Shared/FeedbackCard/FeedbackCard";
+import { Helmet } from "react-helmet-async";
 
 const CourseProgress = () => {
     const [feedbacks, setFeedbacks] = useState([]);
@@ -29,6 +30,9 @@ const CourseProgress = () => {
 
     return (
         <div className="mt-16 px-2 font-inter">
+            <Helmet>
+                <title>SkillUp | Course Progress</title>
+            </Helmet>
             {/* stat */}
             <div className="flex flex-col md:flex-row gap-3 items-center justify-center">
                 <div className="w-full stats shadow rounded-none">

@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import PageHeadline from '../../Shared/PageHeadline/PageHeadline';
 import SharedTable from '../../Shared/SharedTable/SharedTable';
+import { Helmet } from 'react-helmet-async';
 
 const TotalCourses = () => {
     const axiosSecure = useAxiosSecure();
@@ -28,9 +29,12 @@ const TotalCourses = () => {
         }
         tableInfo = [...tableInfo, courseInfo];
     })
-    console.log(tableInfo);
+    // console.log(tableInfo);
     return (
         <div>
+            <Helmet>
+                <title>SkillUp | All Courses</title>
+            </Helmet>
             <PageHeadline headline="All Courses" text="All the courses added by teacher is here. View the courses, if the requirements met accept it otherwise reject."></PageHeadline>
             <SharedTable dataList={tableInfo} tableHeads={tableHeads} buttons={buttons} courseRefetch={courseRefetch}></SharedTable>
         </div>

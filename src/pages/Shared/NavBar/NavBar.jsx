@@ -16,11 +16,11 @@ const NavBar = ({ isHome }) => {
     const [close, setClose] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const { user, logOut } = useAuth();
-    console.log(user);
+    // console.log(user);
     const handleLogout = () => {
         logOut()
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 toast.success('User Successfully Logged Out');
             })
             .catch(error => {

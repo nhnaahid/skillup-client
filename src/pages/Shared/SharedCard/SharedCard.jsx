@@ -8,7 +8,7 @@ import useEnrolls from "../../../hooks/useEnrolls";
 AOS.init();
 
 const SharedCard = ({ data, btnText, url }) => {
-    console.log('I am shared card');
+    // console.log('I am shared card');
     // console.log(data._id);
     const [totalEnrolls, totalEnrollsRefetch] = useEnrolls(data._id);
     // console.log("From shared card: ", totalEnrolls);

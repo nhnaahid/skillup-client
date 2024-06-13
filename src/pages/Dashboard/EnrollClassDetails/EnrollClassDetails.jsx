@@ -8,16 +8,17 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCourse from "../../../hooks/useCourse";
 import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const EnrollClassDetails = () => {
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
     // console.log(id);
-    const [assignments, assignmentRefetch] = useAssignment(id);
-    const [oneCourse, oneCourseRefetch] = useCourse(id);
+    const [assignments] = useAssignment(id);
+    const [oneCourse] = useCourse(id);
     const { user } = useAuth();
-    console.log("assignments: ",assignments);
-    console.log("course: ",oneCourse);
+    // console.log("assignments: ",assignments);
+    // console.log("course: ",oneCourse);
 
 
     const handlePost = e => {
@@ -36,7 +37,7 @@ const EnrollClassDetails = () => {
             email: user?.email,
             image: user?.photoURL
         }
-        console.log("From modal: ", feedbackInfo);
+        // console.log("From modal: ", feedbackInfo);
 
         axiosSecure.post('/feedbacks', feedbackInfo)
             .then(res => {
@@ -64,6 +65,9 @@ const EnrollClassDetails = () => {
     })
     return (
         <div className="px-2 font-inter">
+            <Helmet>
+                <title>SkillUp | Course details</title>
+            </Helmet>
             <PageHeadline headline="Assignments & Feedbacks" text="Here is the assignments for this course added by the course teacher. You can also give feedback about this course."></PageHeadline>
             {/*post feedback */}
             <div className="mt-10">

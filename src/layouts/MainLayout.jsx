@@ -15,7 +15,7 @@ const MainLayout = () => {
     else {
         isHome = false;
     }
-    console.log(isHome);
+    // console.log(isHome);
     return (
         <div>
             <div className={`${isHome ? '' : 'h-[56px] md:h-[80px]'}`}>

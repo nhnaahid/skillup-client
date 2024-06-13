@@ -12,7 +12,7 @@ const Popular = () => {
             return res.data;
         }
     })
-    console.log(courses);
+    // console.log(courses);
 
     return (
         <div className="mt-24">

@@ -14,7 +14,7 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
     // const [submitted, setSubmitted] = useState(false);
     const axiosSecure = useAxiosSecure();
     const handleAccept = data => {
-        console.log(data.title);
+        // console.log(data.title);
     }
     const handleApprove = data => {
         Swal.fire({

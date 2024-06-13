@@ -16,7 +16,7 @@ const SocialLogin = ({ name }) => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 const userInfo = {
                     name: result.user?.displayName,
                     email: result.user?.email,
@@ -25,7 +25,7 @@ const SocialLogin = ({ name }) => {
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                         if (res.data.insertedId) {
                             toast.success('User Registration Successful.');
                             navigate(from, { replace: true });

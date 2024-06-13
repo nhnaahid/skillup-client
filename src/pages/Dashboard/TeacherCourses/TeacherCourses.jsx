@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import PageHeadline from "../../Shared/PageHeadline/PageHeadline";
 import SharedTable from "../../Shared/SharedTable/SharedTable";
 import useAuth from "../../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 
 const TeacherCourses = () => {
@@ -35,6 +36,9 @@ const TeacherCourses = () => {
     // console.log(tableInfo);
     return (
         <div>
+            <Helmet>
+                <title>SkillUp | Teacher Courses</title>
+            </Helmet>
             <PageHeadline headline="My Courses" text="All the courses you have uploaded is here. Some courses might be in pending phase for skillUp review. In that case please wait for skillUp response."></PageHeadline>
             <SharedTable dataList={tableInfo} tableHeads={tableHeads} buttons={buttons} teacherCourseRefetch={teacherCourseRefetch}></SharedTable>
         </div>

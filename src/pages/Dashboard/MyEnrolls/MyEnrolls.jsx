@@ -3,21 +3,25 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import PageHeadline from "../../Shared/PageHeadline/PageHeadline";
 import useAuth from "../../../hooks/useAuth";
 import SharedCard from "../../Shared/SharedCard/SharedCard";
+import { Helmet } from "react-helmet-async";
 
 const MyEnrolls = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
-    const { data: myEnrolls = [], refetch: myEnrollsRefetch } = useQuery({
+    const { data: myEnrolls = [] } = useQuery({
         queryKey: ['myEnroll'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/enrolls/student/${user.email}`);
             return res.data;
         }
     })
-    console.log(myEnrolls);
+    // console.log(myEnrolls);
 
     return (
         <div>
+            <Helmet>
+                <title>SkillUp | My Enrolls</title>
+            </Helmet>
             <PageHeadline headline="My Enrolled Courses" text="Here, you will find a comprehensive list of the courses you are currently registered. Each course is designed to provide you with a rich learning experience."></PageHeadline>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 p-5 mt-16">

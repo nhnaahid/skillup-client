@@ -6,14 +6,15 @@ import { toast } from "react-toastify";
 import useAssignment from "../../../hooks/useAssignment";
 import SharedTable from "../../Shared/SharedTable/SharedTable";
 import useEnrolls from "../../../hooks/useEnrolls";
+import { Helmet } from "react-helmet-async";
 
 const TeacherCourseDetails = () => {
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
     // console.log(id);
     const [assignments, assignmentRefetch] = useAssignment(id);
-    const [totalEnrolls, totalEnrollsRefetch] = useEnrolls(id);
-    console.log("From course details: ", assignments);
+    const [totalEnrolls] = useEnrolls(id);
+    // console.log("From course details: ", assignments);
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -62,6 +63,9 @@ const TeacherCourseDetails = () => {
 
     return (
         <div className="mt-16 px-2 font-inter">
+            <Helmet>
+                <title>SkillUp | Teacher Requests</title>
+            </Helmet>
             {/* stat */}
             <div className="flex flex-col md:flex-row gap-3 items-center justify-center">
                 <div className="w-full stats shadow rounded-none">

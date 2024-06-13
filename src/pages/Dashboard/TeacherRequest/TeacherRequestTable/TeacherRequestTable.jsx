@@ -34,7 +34,7 @@ const TeacherRequestTable = ({ teacher, index }) => {
                 axiosSecure.patch(`/users/${teacher.email}`, { role: 'teacher' })
                     .then(res => {
                         if (res.data.modifiedCount > 0) {
-                            console.log("Success");
+                            // console.log("Success");
                         }
                     })
             }

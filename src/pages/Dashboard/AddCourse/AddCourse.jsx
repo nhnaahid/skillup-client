@@ -6,6 +6,7 @@ import FormButton from "../../../components/FormButton/FormButton";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -35,11 +36,11 @@ const AddCourse = () => {
                 description: data.description,
                 status: 'pending'
             }
-            console.log('imgbb :', courseInfo);
+            // console.log('imgbb :', courseInfo);
             axiosSecure.post('/courses', courseInfo)
                 .then(res => {
                     if (res.data.insertedId) {
-                        console.log(res);
+                        // console.log(res);
                         reset();
                         toast.success('Course added successfully. Please wait for SkillUp response')
                         navigate('/dashboard/teacherCourses');
@@ -51,6 +52,9 @@ const AddCourse = () => {
     return (
 
         <div className="w-4/5 mx-auto">
+            <Helmet>
+                <title>SkillUp | Add Course</title>
+            </Helmet>
             <PageHeadline headline="Add Course" text="Become an instructor, add new courses on different categories in which you are a specialist and change lives including your own"></PageHeadline>
 
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-2 mt-5">

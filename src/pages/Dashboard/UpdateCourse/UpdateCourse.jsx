@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import PageHeadline from "../../Shared/PageHeadline/PageHeadline";
 import FormButton from "../../../components/FormButton/FormButton";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateCourse = () => {
@@ -19,7 +20,7 @@ const UpdateCourse = () => {
             return res.data;
         }
     })
-    console.log('image Url: ', updateCourse.courseImage);
+    // console.log('image Url: ', updateCourse.courseImage);
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -37,12 +38,12 @@ const UpdateCourse = () => {
             price,
             description
         }
-        console.log(courseInfo);
+        // console.log(courseInfo);
 
         axiosSecure.patch(`/courses/update/${id}`, courseInfo)
             .then(res => {
                 if (res.data.modifiedCount) {
-                    console.log(res);
+                    // console.log(res);
                     updateCourseRefetch();
                     toast.success('Course Updated.')
                     navigate('/dashboard/teacherCourses');
@@ -53,6 +54,9 @@ const UpdateCourse = () => {
 
     return (
         <div className="w-4/5 mx-auto">
+            <Helmet>
+                <title>SkillUp | Update Courses</title>
+            </Helmet>
             <PageHeadline headline="Update Course" text="Update your course outline. Stay current with the latest educational trends and continue your growth."></PageHeadline>
 
             <form onSubmit={handleSubmit} className="flex flex-col space-y-2 mt-5">

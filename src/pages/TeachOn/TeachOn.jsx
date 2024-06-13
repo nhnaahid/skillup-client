@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import useTeacher from "../../hooks/useTeacher";
 import useAdmin from "../../hooks/useAdmin";
+import { Helmet } from "react-helmet-async";
 
 const TeachOn = () => {
     const { user } = useAuth();
@@ -33,7 +34,7 @@ const TeachOn = () => {
         }
         // console.log(teacherInfo);
         const resTeacher = await axiosSecure.post('/teacherRequests', teacherInfo);
-        console.log('response on teacher request: ', resTeacher);
+        // console.log('response on teacher request: ', resTeacher);
         if (resTeacher.data.insertedId) {
             reset();
             toast.success('Teacher Request Send Successfully');
@@ -41,6 +42,9 @@ const TeachOn = () => {
     }
     return (
         <div className="my-16">
+            <Helmet>
+                <title>SkillUp | Teach On SkillUp</title>
+            </Helmet>
             <div className="w-4/5 md:w-3/5 mx-auto mt-5 ">
                 <h1 className="border-b border-gray-300 font-merri tracking-wide text-2xl py-2">Teacher Info</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-2 mt-5">
