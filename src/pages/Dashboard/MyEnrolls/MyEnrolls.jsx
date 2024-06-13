@@ -22,7 +22,7 @@ const MyEnrolls = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 p-5 mt-16">
                 {
-                    myEnrolls.map(course => <SharedCard key={course._id} data={course} btnText="Continue" url={`/dashboard/my-enrolls/${course._id}`} ></SharedCard>)
+                    myEnrolls.map(course => <SharedCard key={course._id} data={course} btnText="Continue" url={`/dashboard/my-enrolls/${course.courseId}`} ></SharedCard>)
                 }
             </div>
         </div >

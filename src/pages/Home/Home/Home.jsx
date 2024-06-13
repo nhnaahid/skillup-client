@@ -5,6 +5,7 @@ import Statistics from "../Statistics/Statistics";
 import BeTeacher from "../BeTeacher/BeTeacher";
 import Featured from "../Featured/Featured";
 import NewsLetter from "../NewsLetter/NewsLetter";
+import Feedback from "../Feedback/Feedback";
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <Featured></Featured>
             <Statistics></Statistics>
             <BeTeacher></BeTeacher>
+            <Feedback></Feedback>
             <NewsLetter></NewsLetter>
         </div >
     );

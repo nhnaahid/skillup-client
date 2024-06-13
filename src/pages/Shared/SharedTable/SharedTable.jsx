@@ -6,10 +6,12 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { GrUserAdmin } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 // TODO: refetch need to send and receive
 const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch, teacherCourseRefetch }) => {
+    // const [submitted, setSubmitted] = useState(false);
     const axiosSecure = useAxiosSecure();
     const handleAccept = data => {
         console.log(data.title);
@@ -114,6 +116,17 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
             }
         });
     }
+
+    const handleSubmit = data => {
+        axiosSecure.patch(`/assignments/${data._id}`, { submissionCount: data.subCount + 1 })
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    toast.success('Assignment Submitted');
+                    // setSubmitted(true);
+                }
+            })
+    }
+
     return (
         <div className="overflow-x-auto mt-12">
             <table className="table">
@@ -193,6 +206,9 @@ const SharedTable = ({ dataList, tableHeads, buttons, courseRefetch, userRefetch
                             }
                             {
                                 data.status === 'pending' && <td><p className="text-white bg-yellow-500 rounded-2xl p-1 text-center">Pending</p></td>
+                            }
+                            {
+                                buttons.map((btn, idx) => btn === 'submit' && <td key={idx}> <button onClick={() => handleSubmit(data)} className=" tooltip btn btn-sm text-xs md:text-sm bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700 mt-3 w-full" data-tip="Submit Assignment">Submit</button> </td>)
                             }
                             {
                                 buttons.map((btn, idx) => btn === 'update' && <td key={idx}> <Link to={`/dashboard/teacherCourses/${data._id}`}><button className="text-2xl rounded-full  my-btn p-2 tooltip" data-tip="Update"><RxUpdate /></button> </Link></td>)

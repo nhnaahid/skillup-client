@@ -41,11 +41,13 @@ const TeacherCourseDetails = () => {
     }
 
     let totalSubmission = 0;
+
     // Table data 
     const tableHeads = ['Assignment Title', 'Description', 'Published Date', 'Deadline', 'Submission'];
     const buttons = [];
     let tableInfo = [];
     assignments.map((assignment) => {
+        // only for total submission count
         totalSubmission = totalSubmission + assignment.submissionCount;
         const assignmentInfo = {
             _id: assignment._id,
@@ -57,6 +59,7 @@ const TeacherCourseDetails = () => {
         }
         tableInfo = [...tableInfo, assignmentInfo];
     })
+
     return (
         <div className="mt-16 px-2 font-inter">
             {/* stat */}
@@ -82,10 +85,10 @@ const TeacherCourseDetails = () => {
             </div>
             {/* create */}
             <div className="mt-10">
-                <button onClick={() => document.getElementById('my_modal_3').showModal()} className="btn btn-sm md:btn-md text-xs md:text-sm bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700">
+                <button onClick={() => document.getElementById('my_modal').showModal()} className="btn btn-sm md:btn-md text-xs md:text-sm bg-transparent rounded-none border-[#0B68CD] text-[#0B68CD] hover:border-[#0B68CD] hover:bg-gray-200 hover:text-blue-700">
                     <MdAdd className="text-2xl" /><span className="text-lg -ml-2">Create</span>
                 </button>
-                <dialog id="my_modal_3" className="modal">
+                <dialog id="my_modal" className="modal">
                     <div className="modal-box">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
