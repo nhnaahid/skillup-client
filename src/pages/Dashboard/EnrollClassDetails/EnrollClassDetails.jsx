@@ -16,13 +16,13 @@ const EnrollClassDetails = () => {
     const [assignments, assignmentRefetch] = useAssignment(id);
     const [oneCourse, oneCourseRefetch] = useCourse(id);
     const { user } = useAuth();
-    console.log(assignments);
-    console.log(oneCourse);
+    console.log("assignments: ",assignments);
+    console.log("course: ",oneCourse);
 
 
     const handlePost = e => {
         e.preventDefault();
-        console.log("okay");
+        // console.log("okay");
         const form = e.target;
         const ratings = form.ratings.value;
         const description = form.description.value;
@@ -36,7 +36,7 @@ const EnrollClassDetails = () => {
             email: user?.email,
             image: user?.photoURL
         }
-        // console.log("From modal: ", feedbackInfo);
+        console.log("From modal: ", feedbackInfo);
 
         axiosSecure.post('/feedbacks', feedbackInfo)
             .then(res => {

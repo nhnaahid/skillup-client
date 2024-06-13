@@ -24,7 +24,7 @@ const Statistics = () => {
         })
 
     return (
-        <div data-aos="zoom-in-up" data-aos-duration="1000" className="w-4/5 mx-auto mt-20 flex flex-col-reverse md:flex-row items-center justify-between font-inter">
+        <div data-aos="zoom-in-up" data-aos-duration="1000" className="w-4/5 mx-auto mt-28 flex flex-col-reverse md:flex-row items-center justify-between font-inter">
             {/* data */}
             <div className="w-full md:w-2/5 h-full flex flex-col gap-3">
                 <div className="stats shadow rounded-none">
