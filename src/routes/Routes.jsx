@@ -24,6 +24,7 @@ import EnrollClassDetails from "../pages/Dashboard/EnrollClassDetails/EnrollClas
 import UpdateCourse from "../pages/Dashboard/UpdateCourse/UpdateCourse";
 import TeacherCourseDetails from "../pages/Dashboard/TeacherCourseDetails/TeacherCourseDetails";
 import CourseProgress from "../pages/Dashboard/CourseProgress/CourseProgress";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
 
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
