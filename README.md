@@ -1,7 +1,7 @@
 
 # SkillUp
 
-SkillUp is an online learning platform. This web application will revolutionize the way educational institutions, tutors and students interact, making skill learning and class management more efficient and accessible than ever before.
+SkillUp is an online learning and educational course management platform. This web application will revolutionize the way educational institutions, tutors and students interact, making skill learning and class management more efficient and accessible than ever before.
  
 
 ## Demo
@@ -164,7 +164,7 @@ SkillUp is built using the MERN stack, a powerful combination of technologies th
 
 - **Stripe**
 
-### Additional Tools and Libraries
+### Additional Tools and Packages
 
 - **JWT (JSON Web Tokens)**
 - **Axios**
