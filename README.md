@@ -82,7 +82,7 @@ Make sure you have the following installed:
     ```
 
 ## Firebase & JWT Setup
-Please follow their docs to integrate firebase authentication, create and store jwt in local storage for authentication and authorization.
+Please follow their docs to integrate firebase authentication, create and store jwt in local storage for authorization.
 
 ## Usage
 
