@@ -91,48 +91,37 @@ Once the server and client are running, open your web browser and go to `http://
 
 
 
-## Features
+## Key Features
 
-1. **Browse Courses**
-   - Users can explore a wide range of courses across different subjects.
-
-2. **Create Profile**
-   - Users can create and customize their profiles.
-   - Profile includes personal information, enrolled courses, and progress tracking.
-
-3. **Firebase Authentication**
+1. **Firebase Authentication**
    - Secure authentication using Firebase for user login and registration.
    - Supports email/password and social media login options.
 
-4. **Separate Dashboards**
+2. **Separate Dashboards(Authorization handled by JWT)**
    - **Admin Dashboard**: Comprehensive control panel for site management.
    - **Student Dashboard**: Personalized area for course management and tracking progress.
    - **Teacher Dashboard**: Interface for managing courses, assignments, and student interactions.
 
-5. **Enroll Course**
+3. **Enroll Course**
    - Easy course enrollment process for students.
    - Instant access to course materials upon enrollment.
 
-6. **Secure Payment**
+4. **Secure Payment**
    - Integrated secure payment gateway for course purchases.
 
-7. **Assignment Management**
+5. **Assignment Management**
    - Teachers can post assignments with deadlines.
    - Students can submit assignments directly through the platform.
 
-8. **User Behavior Statistics**
+6. **User Behavior Statistics**
    - Detailed analytics on user engagement and behavior.
    - Helps in understanding user preferences and improving the platform.
 
-9. **Fully Controlled Admin Panel**
-   - Full control over user management, course management, and site settings.
-   - Ability to generate reports, manage payments, and monitor site activity.
-
-10. **Feedback Section**
+7. **Feedback Section**
     - Users can provide feedback on courses and platform functionality.
     - Helps in continuous improvement based on user input.
 
-11. **Responsive Design**
+8. **Responsive Design**
     - Mobile-friendly design ensuring accessibility on all devices.
     - Consistent and intuitive user experience across desktops, tablets, and smartphones.
 
