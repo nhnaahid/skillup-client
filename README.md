@@ -97,14 +97,13 @@ Once the server and client are running, open your web browser and go to `http://
    - Secure authentication using Firebase for user login and registration.
    - Supports email/password and social media login options.
 
-2. **Separate Dashboards(Authorization handled by JWT)**
+2. **Separate Dashboards (Authorization handled by JWT)**
    - **Admin Dashboard**: Comprehensive control panel for site management.
    - **Student Dashboard**: Personalized area for course management and tracking progress.
    - **Teacher Dashboard**: Interface for managing courses, assignments, and student interactions.
 
 3. **Enroll Course**
    - Easy course enrollment process for students.
-   - Instant access to course materials upon enrollment.
 
 4. **Secure Payment**
    - Integrated secure payment gateway for course purchases.
@@ -119,7 +118,6 @@ Once the server and client are running, open your web browser and go to `http://
 
 7. **Feedback Section**
     - Users can provide feedback on courses and platform functionality.
-    - Helps in continuous improvement based on user input.
 
 8. **Responsive Design**
     - Mobile-friendly design ensuring accessibility on all devices.
